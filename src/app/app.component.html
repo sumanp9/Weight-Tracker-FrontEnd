@@ -1,4 +1,4 @@
-<mat-card class="main-card">
+<mat-card class="main-card" *ngIf="!logged">
   <mat-card-header>
     <div mat-card-avatar class="main-page-image"></div>
     <mat-card-title>Weight Tracker</mat-card-title>
@@ -15,3 +15,5 @@
     <button mat-button (click)="signin()">Sign in</button>
   </mat-card-actions>
 </mat-card>
+
+<app-tracker-application *ngIf="logged"></app-tracker-application>
