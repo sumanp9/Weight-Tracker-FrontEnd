@@ -8,10 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
-import {MatCardModule} from '@angular/material/card'; 
+import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { TrackerApplicationComponent } from './tracker-application/tracker-application.component';
-import { NotFoundComponent } from './not-found/not-found.component'; 
+import { NotFoundComponent } from './not-found/not-found.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -24,8 +28,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
