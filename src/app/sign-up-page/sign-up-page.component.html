@@ -3,16 +3,16 @@
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Personal Information</ng-template>
       <mat-form-field>
-        First Name
-        <input matInput [formControl]="firstName">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="userProfile.firstName"  [ngModelOptions]="{standalone: true}" >
       </mat-form-field>
       <mat-form-field>
-        Last Name
-        <input matInput [formControl]="lastName">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="userProfile.lastName"  [ngModelOptions]="{standalone: true}">
       </mat-form-field>
       <mat-form-field>
-        Email
-        <input matInput [formControl]="email">
+        <mat-label>Email Id</mat-label>
+        <input type="email" matInput [(ngModel)]="userProfile.emailId"  [ngModelOptions]="{standalone: true}">
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button> &nbsp;
@@ -26,8 +26,9 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Additional Information</ng-template>
-      <mat-form-field> Height in cm
-        <input matInput [formControl]="height">
+      <mat-form-field>
+        <mat-label>Height in cm</mat-label>
+        <input matInput [(ngModel)]="userProfile.height"  [ngModelOptions]="{standalone: true}">
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button> &nbsp;

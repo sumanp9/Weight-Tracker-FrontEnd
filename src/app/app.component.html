@@ -17,7 +17,7 @@
       <h1>Sign In</h1>
       <span></span>
       <mat-form-field> Enter your email id:
-        <input matInput [(ngModel)]="emailId">
+        <input matInput type="email" [(ngModel)]="emailId">
       </mat-form-field>
       <button mat-button (click)="signIn()"> Sign In</button> &nbsp;
       <button mat-button matDialogClose>Close</button>
