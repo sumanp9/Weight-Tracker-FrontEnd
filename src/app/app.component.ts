@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {SignUpPageComponent} from './sign-up-page/sign-up-page.component';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public dialog: MatDialog) {
   }
   title = 'Weight-Tracker-FrontEnd';
   logged = false;
@@ -18,6 +20,13 @@ export class AppComponent {
     this.logged= true;
     this.router.navigateByUrl('/trackerApp');
 
+  }
+
+  signup() {
+      this.dialog.open(SignUpPageComponent, {
+        width: '400px',
+        disableClose: true
+      });
   }
 }
 

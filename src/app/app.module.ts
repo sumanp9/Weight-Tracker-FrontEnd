@@ -16,12 +16,18 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrackerApplicationComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,12 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    MatStepperModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

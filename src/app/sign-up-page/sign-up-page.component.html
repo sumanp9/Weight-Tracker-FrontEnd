@@ -1,0 +1,39 @@
+<mat-vertical-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Personal Information</ng-template>
+      <mat-form-field>
+        First Name
+        <input matInput [formControl]="firstName">
+      </mat-form-field>
+      <mat-form-field>
+        Last Name
+        <input matInput [formControl]="lastName">
+      </mat-form-field>
+      <mat-form-field>
+        Email
+        <input matInput [formControl]="email">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button> &nbsp;
+        <button mat-button matDialogClose>Close</button>
+
+      </div>
+    </form>
+
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Additional Information</ng-template>
+      <mat-form-field> Height in cm
+        <input matInput [formControl]="height">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button> &nbsp;
+        <button mat-button matDialogClose>Close</button>&nbsp;
+        <button mat-button (click)="signUp()">Sign Up</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-vertical-stepper>
