@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Route, Router} from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 import {DataService} from '../data-service/data.service';
 import {UserProfile} from '../home/home.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-tracker-application',
@@ -10,15 +11,23 @@ import {UserProfile} from '../home/home.component';
 })
 export class TrackerApplicationComponent implements OnInit {
   user: UserProfile;
-  constructor(private route: Router,
+  subscription: Subscription; // Using subscription to get object from service;
+
+  constructor(private router: Router,
+              private route: ActivatedRoute,
               private dataService: DataService) {
-    this.dataService.previousUserData.subscribe((data) => {
-      this.user = data;
-    });
+
+    this.user =  this.dataService.serviceData;
+    console.log(this.user.firstName);
   }
 
   ngOnInit(): void {
-    console.log(this.user.firstName+ "Here");
+    alert("Welcome "+ this.user.firstName);
+    //console.log("In tracjer app "+ this.user.firstName);
+
   }
 
+  logout() {
+    this.router.navigateByUrl('');
+  }
 }

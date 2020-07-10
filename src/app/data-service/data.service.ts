@@ -7,15 +7,7 @@ import {UserProfile} from '../home/home.component';
 })
 export class DataService {
 
-  previousUserData: Observable<UserProfile>;
+  serviceData: UserProfile;
 
-  private previousUserSubject: Subject<UserProfile> =  new Subject<UserProfile>();
-
-  constructor() {
-    this.previousUserData =  this.previousUserSubject.asObservable();
   }
 
-  updatePreviousUser(user: UserProfile) {
-    this.previousUserSubject.next(user);
-  }
-}

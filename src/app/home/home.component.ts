@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {LoginService} from '../login-service/login.service';
 import {DataService} from '../data-service/data.service';
+import {SignUpPageComponent} from '../sign-up-page/sign-up-page.component';
 
 export interface UserProfile {
   firstName: string;
@@ -39,14 +40,10 @@ export class HomeComponent implements OnInit {
     this.dialog.open(signInTemplate, {
       width: '300px'
     });
-
-    //this.logged= true;
-    //this.router.navigateByUrl('/trackerApp');
-
   }
 
   signup() {
-    /* const signUpDialog = this.dialog.open(SignUpPageComponent, {
+     const signUpDialog = this.dialog.open(SignUpPageComponent, {
        width: '400px',
        disableClose: true
      });
@@ -54,12 +51,11 @@ export class HomeComponent implements OnInit {
      signUpDialog.afterClosed().subscribe((newUser: UserProfile) => {
        this.loginService.registerNewUser(newUser).subscribe((user) => {
          if (user) {
-           this.dataService.updatePreviousUser(user);
-           this.router.navigateByUrl('/trackerApp');
+         //  this.dataService.sendData(user);
+           this.router.navigate(['/trackerApp'], {queryParams: {profile: user.emailId}});
          }
        }, error => console.error(error));
-     });*/
-    this.router.navigateByUrl('/trackerApp');
+     });
 
   }
 
@@ -67,7 +63,7 @@ export class HomeComponent implements OnInit {
     this.loginService.userLogin(this.emailId).subscribe((user: UserProfile) => {
       if (user != null) {
         console.log(user.firstName);
-        this.dataService.updatePreviousUser(user);
+        this.dataService.serviceData = user;
         this.dialog.closeAll();
         this.router.navigateByUrl('/trackerApp');
       } else if (user == null){
