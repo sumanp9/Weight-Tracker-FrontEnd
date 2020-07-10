@@ -31,7 +31,6 @@ export class SignUpPageComponent implements OnInit {
 
 
   signUp() {
-    console.log(this.userProfile)
     this.dialogRef.close(this.userProfile);
   }
 }
