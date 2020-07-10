@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserProfile} from '../app.component';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserProfile} from '../home/home.component';
 @Component({
   selector: 'app-sign-up-page',
   templateUrl: './sign-up-page.component.html',

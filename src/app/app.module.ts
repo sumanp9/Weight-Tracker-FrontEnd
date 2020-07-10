@@ -22,13 +22,15 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatStepperModule} from '@angular/material/stepper';
 import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrackerApplicationComponent,
     NotFoundComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

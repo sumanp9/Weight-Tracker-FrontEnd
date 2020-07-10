@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Route, Router} from '@angular/router';
 import {DataService} from '../data-service/data.service';
-import {UserProfile} from '../app.component';
+import {UserProfile} from '../home/home.component';
 
 @Component({
   selector: 'app-tracker-application',
@@ -18,7 +18,7 @@ export class TrackerApplicationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.user.firstName);
+    console.log(this.user.firstName+ "Here");
   }
 
 }
