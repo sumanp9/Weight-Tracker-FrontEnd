@@ -51,11 +51,11 @@ export class TrackerApplicationComponent implements OnInit {
       disableClose: true
     }).afterClosed().subscribe((data: WeightData) => {
       if (data) {
-        this.loginService.addUsersWeightData(this.user.id, data);
+        this.loginService.addUsersWeightData(this.user.id, data).subscribe();
       } else {
         console.error('Unable to get user\'s data');
       }
-    });
+    } , error => {console.error("Unable to add your data to database!")});
 
   }
 }

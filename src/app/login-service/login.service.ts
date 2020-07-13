@@ -27,6 +27,6 @@ export class LoginService {
   }
 
   addUsersWeightData(id: number, weightData: WeightData) {
-    this.http.post('http://localhost:8080/addWeightData/' + id, weightData);
+    return this.http.post('http://localhost:8080/addWeightData/' + id, weightData);
   }
 }

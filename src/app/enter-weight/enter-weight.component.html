@@ -10,7 +10,7 @@
 <mat-form-field>
   <div class="child1">
   <mat-label>Weight</mat-label>
-  <input type="number" matInput [(ngModel)]="weight">
+  <input type="number" matInput min="0" [(ngModel)]="weight">
   </div>
 </mat-form-field>
   <div class="child2">
@@ -25,6 +25,6 @@
     </mat-form-field>
   </div>
 </div>
-<button mat-raised-button color="accent" (click)="save()">Save</button>
+<button mat-raised-button color="accent" (click)="save()">Save</button> &nbsp;
 <button mat-raised-button color="warn" matDialogClose>Cancel</button>
 
