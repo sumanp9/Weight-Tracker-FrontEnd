@@ -1,1 +1,14 @@
-<p>profile works!</p>
+<div>
+  <h3>User Profile</h3>
+  <mat-error *ngIf="false">Error! something went wrong while fetching your profile. Please retry again.</mat-error>
+  <div>
+    <mat-icon>add</mat-icon>
+  </div>
+  <div>
+    <ol>
+      <li>Name: {{this.userProfile.firstName}} {{this.userProfile.lastName}}</li>
+      <li>Email: {{this.userProfile.emailId}}</li>
+      <li>Height: {{this.userProfile.height}}cm</li>
+    </ol>
+  </div>
+</div>

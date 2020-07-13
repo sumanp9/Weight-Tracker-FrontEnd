@@ -23,6 +23,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatStepperModule} from '@angular/material/stepper';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { EnterWeightComponent } from './enter-weight/enter-weight.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {DateAdapter, MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,9 @@ import { HomeComponent } from './home/home.component';
     TrackerApplicationComponent,
     NotFoundComponent,
     SignUpPageComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
+    EnterWeightComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +55,13 @@ import { HomeComponent } from './home/home.component';
     MatInputModule,
     FormsModule,
     MatStepperModule,
+    MatTooltipModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

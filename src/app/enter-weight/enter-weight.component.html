@@ -1,0 +1,30 @@
+<mat-error *ngIf="this.errorMessage">{{errorMessage}}</mat-error>
+<h1>Enter your weight below:</h1>
+<mat-form-field color="accent" appearance="fill">
+  <mat-label>Pick a Date</mat-label>
+  <input matInput [matDatepicker]="picker" [formControl]="date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<div class="parent">
+<mat-form-field>
+  <div class="child1">
+  <mat-label>Weight</mat-label>
+  <input type="number" matInput [(ngModel)]="weight">
+  </div>
+</mat-form-field>
+  <div class="child2">
+    <mat-form-field appearance="fill">
+    <mat-label>unit</mat-label>
+    <mat-select [(ngModel)]="selectedUnit">
+      <mat-option *ngFor="let unit of units"
+                  [value]="unit.value">
+        {{unit.viewValue}}
+      </mat-option>
+    </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<button mat-raised-button color="accent" (click)="save()">Save</button>
+<button mat-raised-button color="warn" matDialogClose>Cancel</button>
+

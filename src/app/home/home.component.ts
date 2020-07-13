@@ -6,6 +6,7 @@ import {DataService} from '../data-service/data.service';
 import {SignUpPageComponent} from '../sign-up-page/sign-up-page.component';
 
 export interface UserProfile {
+  id: number;
   firstName: string;
   lastName: string;
   emailId: string;
@@ -50,9 +51,12 @@ export class HomeComponent implements OnInit {
 
      signUpDialog.afterClosed().subscribe((newUser: UserProfile) => {
        this.loginService.registerNewUser(newUser).subscribe((user) => {
-         if (user) {
-         //  this.dataService.sendData(user);
-           this.router.navigate(['/trackerApp'], {queryParams: {profile: user.emailId}});
+         console.log(user);
+         if (user != null) {
+           this.dataService.serviceData = user;
+           this.router.navigateByUrl('/trackerApp');
+         } else{
+           console.error("Unable to add user");
          }
        }, error => console.error(error));
      });

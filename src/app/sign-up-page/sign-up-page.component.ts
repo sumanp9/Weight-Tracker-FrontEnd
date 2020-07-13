@@ -26,7 +26,7 @@ export class SignUpPageComponent implements OnInit {
       firstCtrl: ['', Validators.required]
     });
 
-    this.userProfile = {firstName: '', lastName: '', emailId: '', height: null};
+    this.userProfile = {id: null, firstName: '', lastName: '', emailId: '', height: null};
   }
 
 

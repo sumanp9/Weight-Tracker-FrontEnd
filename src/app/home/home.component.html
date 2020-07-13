@@ -13,13 +13,12 @@
   <mat-card-actions>
     <button  mat-raised-button (click)="signup()">Sign up</button>
     <button mat-button (click)="openDialog(signInTemplate)">Sign in</button>
-    <button routerLink="/frontPage">Go to sidekicks</button>
 
     <ng-template #signInTemplate>
       <h1>Sign In</h1>
       <span></span>
       <mat-form-field> Enter your email id:
-        <input matInput type="email" [(ngModel)]="emailId">
+        <input matInput type="email" [(ngModel)]="emailId"  (keyup.enter)="signIn()">
         <p *ngIf="loginError"></p>
         <mat-error *ngIf="loginError">{{errorMsg}}</mat-error>
       </mat-form-field>

@@ -10,7 +10,7 @@
       <mat-icon>face</mat-icon>
     </button>
     <mat-menu #account="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="openUserProfile()">
         <mat-icon>face</mat-icon>
         <span>Profile</span>
       </button>
@@ -22,3 +22,5 @@
   </mat-toolbar>
  <mat-drawer-container></mat-drawer-container>
 </mat-card>
+
+<button mat-fab class="add-button" color="accent" (click)="addWeight()"><mat-icon color="primary" matTooltip="Add your data">add</mat-icon></button>
