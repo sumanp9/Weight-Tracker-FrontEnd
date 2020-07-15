@@ -1,9 +1,7 @@
-<mat-sidenav-container class="container" *ngIf="openSideNav">
-  <mat-sidenav #sidenav mode="side"></mat-sidenav>
-</mat-sidenav-container>
 <mat-card>
   <mat-toolbar color="accent">
-    <button mat-icon-button mat-raised-button (click)="sideNavOpen()">
+    <button mat-icon-button mat-raised-button
+            (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span class="menu-spacer"></span>
@@ -23,7 +21,18 @@
       </button>
     </mat-menu>
   </mat-toolbar>
- <mat-drawer-container></mat-drawer-container>
 </mat-card>
+
+<mat-drawer-container *ngIf="shouldRun">
+  <mat-drawer #sidenav mode="side" [(opened)]="opened" >
+    Sidenav contents
+    <input matInput>Enter
+  </mat-drawer>
+
+  <mat-drawer-content>
+    Hello
+  </mat-drawer-content>
+</mat-drawer-container>
+
 
 <button mat-fab class="add-button" color="accent" (click)="addWeight()"><mat-icon color="primary" matTooltip="Add your data">add</mat-icon></button>

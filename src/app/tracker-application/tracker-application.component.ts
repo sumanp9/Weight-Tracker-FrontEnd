@@ -1,12 +1,13 @@
-import {Component, OnDestroy, OnInit, TemplateRef} from '@angular/core';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DataService} from '../data-service/data.service';
 import {UserProfile} from '../home/home.component';
-import {Subscription} from 'rxjs';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {ProfileComponent} from '../profile/profile.component';
 import {EnterWeightComponent} from '../enter-weight/enter-weight.component';
 import {LoginService, WeightData} from '../login-service/login.service';
+import {MatSidenav} from '@angular/material/sidenav';
+
 
 @Component({
   selector: 'app-tracker-application',
@@ -14,10 +15,10 @@ import {LoginService, WeightData} from '../login-service/login.service';
   styleUrls: ['./tracker-application.component.scss']
 })
 export class TrackerApplicationComponent implements OnInit {
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
   user: UserProfile;
-  subscription: Subscription; // Using subscription to get object from service;
-  private welcomeTemplate: TemplateRef<any>;
-  openSideNav: boolean;
+  opened = true;
+  shouldRun =  [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
 
   constructor(private router: Router,
@@ -35,10 +36,6 @@ export class TrackerApplicationComponent implements OnInit {
       this.router.navigateByUrl('');
     }
 
-    }
-
-    sideNavOpen() {
-      return this.openSideNav = true;
     }
 
   logout() {
@@ -61,7 +58,7 @@ export class TrackerApplicationComponent implements OnInit {
       } else {
         console.error('Unable to get user\'s data');
       }
-    } , error => {console.error("Unable to add your data to database!")});
+    } , error => {console.error('Unable to add your data to database!')});
 
   }
 }
