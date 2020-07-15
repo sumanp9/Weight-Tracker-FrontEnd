@@ -17,6 +17,8 @@ export class TrackerApplicationComponent implements OnInit {
   user: UserProfile;
   subscription: Subscription; // Using subscription to get object from service;
   private welcomeTemplate: TemplateRef<any>;
+  openSideNav: boolean;
+
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -33,6 +35,10 @@ export class TrackerApplicationComponent implements OnInit {
       this.router.navigateByUrl('');
     }
 
+    }
+
+    sideNavOpen() {
+      return this.openSideNav = true;
     }
 
   logout() {

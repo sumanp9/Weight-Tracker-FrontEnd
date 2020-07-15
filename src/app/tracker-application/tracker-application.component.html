@@ -1,6 +1,9 @@
+<mat-sidenav-container class="container" *ngIf="openSideNav">
+  <mat-sidenav #sidenav mode="side"></mat-sidenav>
+</mat-sidenav-container>
 <mat-card>
   <mat-toolbar color="accent">
-    <button mat-icon-button>
+    <button mat-icon-button mat-raised-button (click)="sideNavOpen()">
       <mat-icon>menu</mat-icon>
     </button>
     <span class="menu-spacer"></span>
