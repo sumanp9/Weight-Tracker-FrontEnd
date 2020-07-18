@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UserProfile} from '../home/home.component';
-import {MatDatepicker} from '@angular/material/datepicker';
 
 export interface WeightData{
   date: string;
@@ -28,5 +27,9 @@ export class LoginService {
 
   addUsersWeightData(id: number, weightData: WeightData) {
     return this.http.post('http://localhost:8080/addWeightData/' + id, weightData);
+  }
+
+  getCurrentWeight(id: number): Observable<WeightData> {
+    return this.http.get<WeightData>('http://localhost:8080/getCurrentUserWeight/' + id);
   }
 }

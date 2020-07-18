@@ -17,8 +17,8 @@ import {MatSidenav} from '@angular/material/sidenav';
 export class TrackerApplicationComponent implements OnInit {
   @ViewChild(MatSidenav) sidenav: MatSidenav;
   user: UserProfile;
-  opened = true;
-  shouldRun =  [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+  calc: boolean;
+  userBMI: number;
 
 
   constructor(private router: Router,
@@ -35,7 +35,6 @@ export class TrackerApplicationComponent implements OnInit {
     if (this.user == null) {
       this.router.navigateByUrl('');
     }
-
     }
 
   logout() {
@@ -58,7 +57,32 @@ export class TrackerApplicationComponent implements OnInit {
       } else {
         console.error('Unable to get user\'s data');
       }
-    } , error => {console.error('Unable to add your data to database!')});
+    } , error => {console.error('Unable to add your data to database!'); });
 
+  }
+
+  calculateBMI() {
+    // need to check if any weight has been entered before calculating bmi
+    this.calc = true;
+
+    this.loginService.getCurrentWeight(this.user.id).subscribe((weight => {
+      if (weight.unit === 'lb') {
+        this.userBMI =  this.bmiRound((weight.weight / 2.2046), ((this.user.height * this.user.height) / 10000));
+      } else{
+        this.userBMI = this.bmiRound(weight.weight , ((this.user.height * this.user.height) / 10000));
+      }
+      }
+    ));
+  }
+
+  bmiRound(weight: number, height: number) {
+    return Math.round((weight / height) * 10) / 10;
+  }
+
+
+
+  refreshBMI() {
+    this.calc = false;
+    this.userBMI = null;
   }
 }

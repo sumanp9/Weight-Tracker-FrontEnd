@@ -6,17 +6,15 @@
 }
 
 .add-button {
-  position: absolute ;
+  position: fixed;
   bottom: 10%;
   right: 10%;
 }
 
-.example-events {
-  width: 300px;
-  height: 200px;
-  overflow: auto;
-  border: 1px solid #555;
-}
-.mat-sidenav, .mat-sidenav-content {
-  padding: 24px;
+.example-container {
+  position: fixed;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100%;
 }

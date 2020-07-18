@@ -1,38 +1,41 @@
-<mat-card>
-  <mat-toolbar color="accent">
-    <button mat-icon-button mat-raised-button
-            (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span class="menu-spacer"></span>
-    <span>Tracker Application</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button  [matMenuTriggerFor]="account" aria-label="Account icon with a menu">
-      <mat-icon>face</mat-icon>
-    </button>
-    <mat-menu #account="matMenu">
-      <button mat-menu-item (click)="openUserProfile()">
-        <mat-icon>face</mat-icon>
-        <span>Profile</span>
-      </button>
-      <button mat-menu-item (click)="logout()">
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Logout</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar>
-</mat-card>
-
-<mat-drawer-container *ngIf="shouldRun">
-  <mat-drawer #sidenav mode="side" [(opened)]="opened" >
-    Sidenav contents
-    <input matInput>Enter
+<mat-drawer-container [hasBackdrop]="true" class="example-container" *ngIf="user">
+  <mat-drawer #drawer mode="side">
+    <mat-card class="dashboard-card">
+      <mat-card-header>User Infromation</mat-card-header>
+        <button mat-button *ngIf="!calc" (click)="calculateBMI()">Calculate BMI</button>
+        <label *ngIf="calc">BMI: </label>
+        {{this.userBMI}}
+      <p></p>
+      <button mat-icon-button *ngIf="calc" (click)="refreshBMI()"><mat-icon>refresh</mat-icon></button>
+    </mat-card>
   </mat-drawer>
 
   <mat-drawer-content>
-    Hello
+    <mat-card>
+    <mat-toolbar color="accent">
+      <button mat-icon-button mat-raised-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="menu-spacer"></span>
+      <span>Tracker Application</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button  [matMenuTriggerFor]="account" aria-label="Account icon with a menu">
+        <mat-icon>face</mat-icon>
+      </button>
+      <mat-menu #account="matMenu">
+        <button mat-menu-item (click)="openUserProfile()">
+          <mat-icon>face</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+      <button mat-fab class="add-button" color="accent" (click)="addWeight()"><mat-icon color="primary" matTooltip="Add your data">add</mat-icon></button>
+    </mat-card>
   </mat-drawer-content>
 </mat-drawer-container>
 
 
-<button mat-fab class="add-button" color="accent" (click)="addWeight()"><mat-icon color="primary" matTooltip="Add your data">add</mat-icon></button>
