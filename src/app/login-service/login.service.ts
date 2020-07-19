@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {UserProfile} from '../home/home.component';
 
 export interface WeightData{
+  id: number;
   date: string;
   weight: number;
   unit: string;
@@ -31,5 +32,9 @@ export class LoginService {
 
   getCurrentWeight(id: number): Observable<WeightData> {
     return this.http.get<WeightData>('http://localhost:8080/getCurrentUserWeight/' + id);
+  }
+
+  getUsersData(id: number): Observable<Array<WeightData>> {
+    return this.http.get<Array<WeightData>>('http://localhost:8080/getData/' + id);
   }
 }

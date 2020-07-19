@@ -1,12 +1,16 @@
 <mat-drawer-container [hasBackdrop]="true" class="example-container" *ngIf="user">
   <mat-drawer #drawer mode="side">
     <mat-card class="dashboard-card">
-      <mat-card-header>User Infromation</mat-card-header>
+      <mat-card-header>User Information</mat-card-header>
         <button mat-button *ngIf="!calc" (click)="calculateBMI()">Calculate BMI</button>
-        <label *ngIf="calc">BMI: </label>
-        {{this.userBMI}}
+      <div  *ngIf="calc">
+        <label>BMI: </label>
+        {{this.userBMI + 'kg/m2'}}
+      </div>
       <p></p>
       <button mat-icon-button *ngIf="calc" (click)="refreshBMI()"><mat-icon>refresh</mat-icon></button>
+      <p></p>
+      <button mat-button (click)="showUserData()">Show Data History</button>
     </mat-card>
   </mat-drawer>
 
@@ -35,6 +39,10 @@
     </mat-toolbar>
       <button mat-fab class="add-button" color="accent" (click)="addWeight()"><mat-icon color="primary" matTooltip="Add your data">add</mat-icon></button>
     </mat-card>
+
+    <div *ngIf="showData">
+     <app-userweightdata *ngIf="showData"></app-userweightdata>
+    </div>
   </mat-drawer-content>
 </mat-drawer-container>
 

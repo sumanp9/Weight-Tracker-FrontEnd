@@ -29,6 +29,9 @@ import { EnterWeightComponent } from './enter-weight/enter-weight.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {DateAdapter, MatNativeDateModule} from '@angular/material/core';
+import { UserweightdataComponent } from './userweightdata/userweightdata.component';
+import {MatTableModule} from '@angular/material/table';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -38,30 +41,32 @@ import {DateAdapter, MatNativeDateModule} from '@angular/material/core';
     SignUpPageComponent,
     HomeComponent,
     ProfileComponent,
-    EnterWeightComponent
+    EnterWeightComponent,
+    UserweightdataComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatDialogModule,
-    MatInputModule,
-    FormsModule,
-    MatStepperModule,
-    MatTooltipModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    ReactiveFormsModule
-  ],
-  providers: [MatDatepickerModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatInputModule,
+        FormsModule,
+        MatStepperModule,
+        MatTooltipModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        MatTableModule
+    ],
+  providers: [MatDatepickerModule, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

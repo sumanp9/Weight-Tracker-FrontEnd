@@ -33,7 +33,7 @@ export class EnterWeightComponent implements OnInit {
 
   save() {
     if (!(this.weight == null && this.selectedUnit == null)) {
-      this.weightData = {date: this.serializedDate.value, weight: this.weight, unit: this.selectedUnit};
+      this.weightData = {id: null, date: this.serializedDate.value, weight: this.weight, unit: this.selectedUnit};
       this.dialogRef.close(this.weightData);
 
     } else{

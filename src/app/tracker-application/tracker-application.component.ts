@@ -19,6 +19,7 @@ export class TrackerApplicationComponent implements OnInit {
   user: UserProfile;
   calc: boolean;
   userBMI: number;
+  showData: boolean;
 
 
   constructor(private router: Router,
@@ -84,5 +85,9 @@ export class TrackerApplicationComponent implements OnInit {
   refreshBMI() {
     this.calc = false;
     this.userBMI = null;
+  }
+
+  showUserData() {
+    this.showData = true;
   }
 }
