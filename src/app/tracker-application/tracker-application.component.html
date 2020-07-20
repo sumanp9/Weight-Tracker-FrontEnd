@@ -9,8 +9,6 @@
       </div>
       <p></p>
       <button mat-icon-button *ngIf="calc" (click)="refreshBMI()"><mat-icon>refresh</mat-icon></button>
-      <p></p>
-      <button mat-button (click)="showUserData()">Show Data History</button>
     </mat-card>
   </mat-drawer>
 
@@ -39,10 +37,18 @@
     </mat-toolbar>
       <button mat-fab class="add-button" color="accent" (click)="addWeight()"><mat-icon color="primary" matTooltip="Add your data">add</mat-icon></button>
     </mat-card>
+    <p></p>
+    <mat-accordion>
+      <mat-expansion-panel (opened) = "panelOpenState = true"
+                            (closed)= "panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Progress History</mat-panel-title>
+          <mat-panel-description> <span *ngIf="panelOpenState==false"> Click the arrow to see your progress</span></mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-userweightdata></app-userweightdata>
 
-    <div *ngIf="showData">
-     <app-userweightdata *ngIf="showData"></app-userweightdata>
-    </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-drawer-content>
 </mat-drawer-container>
 

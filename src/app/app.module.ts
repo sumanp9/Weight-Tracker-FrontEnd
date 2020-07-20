@@ -32,6 +32,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { UserweightdataComponent } from './userweightdata/userweightdata.component';
 import {MatTableModule} from '@angular/material/table';
 import {DatePipe} from '@angular/common';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {DatePipe} from '@angular/common';
         MatDatepickerModule,
         MatNativeDateModule,
         ReactiveFormsModule,
-        MatTableModule
+        MatTableModule,
+        MatExpansionModule
     ],
   providers: [MatDatepickerModule, DatePipe],
   bootstrap: [AppComponent]

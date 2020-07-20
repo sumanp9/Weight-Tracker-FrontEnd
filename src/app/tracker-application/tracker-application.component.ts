@@ -22,6 +22,7 @@ export class TrackerApplicationComponent implements OnInit {
   calc: boolean;
   userBMI: number;
   showData: boolean;
+  panelOpenState = false;
 
 
   constructor(private router: Router,
