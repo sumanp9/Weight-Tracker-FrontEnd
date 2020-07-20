@@ -7,6 +7,7 @@ import {ProfileComponent} from '../profile/profile.component';
 import {EnterWeightComponent} from '../enter-weight/enter-weight.component';
 import {LoginService, WeightData} from '../login-service/login.service';
 import {MatSidenav} from '@angular/material/sidenav';
+import {UserweightdataComponent} from '../userweightdata/userweightdata.component';
 
 
 @Component({
@@ -16,6 +17,7 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 export class TrackerApplicationComponent implements OnInit {
   @ViewChild(MatSidenav) sidenav: MatSidenav;
+  @ViewChild(UserweightdataComponent) userDataComponent;
   user: UserProfile;
   calc: boolean;
   userBMI: number;
@@ -55,7 +57,9 @@ export class TrackerApplicationComponent implements OnInit {
       data: null
     }).afterClosed().subscribe((data: WeightData) => {
       if (data) {
-        this.loginService.addUsersWeightData(this.user.id, data).subscribe();
+        this.loginService.addUsersWeightData(this.user.id, data).subscribe(result => {
+          this.userDataComponent.refreshPage();
+        });
       } else {
         console.error('Unable to get user\'s data');
       }
