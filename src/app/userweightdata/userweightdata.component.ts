@@ -3,6 +3,8 @@ import {LoginService, WeightData} from '../login-service/login.service';
 import {DataService} from '../data-service/data.service';
 import {UserProfile} from '../home/home.component';
 import {DatePipe, formatDate} from '@angular/common';
+import {MatDialog} from '@angular/material/dialog';
+import {EnterWeightComponent} from '../enter-weight/enter-weight.component';
 
 @Component({
   selector: 'app-userweightdata',
@@ -18,7 +20,8 @@ export class UserweightdataComponent implements OnInit {
 
   constructor(private loginService: LoginService,
               private dataService: DataService,
-              private datePipe: DatePipe) {
+              private datePipe: DatePipe,
+              private dialog: MatDialog) {
 
     this.user =  this.dataService.serviceData;
 
@@ -55,4 +58,10 @@ export class UserweightdataComponent implements OnInit {
     return this.userData.indexOf(weight) + 1;
   }
 
+  editWeight(weight: WeightData) {
+    this.dialog.open(EnterWeightComponent, {
+      width: '300px',
+      data: weight
+    });
+  }
 }

@@ -11,7 +11,7 @@
     </ng-container>
     <ng-container matColumnDef="weight">
       <th mat-header-cell *matHeaderCellDef>Weight</th>
-      <td mat-cell *matCellDef="let weight"> {{weight.weight}} {{weight.unit}} </td>
+      <td mat-cell *matCellDef="let weight"> <span class="edit-weight" (click)="editWeight(weight)">{{weight.weight}} {{weight.unit}}</span></td>
     </ng-container>
     <ng-container matColumnDef="bmi">
       <th mat-header-cell *matHeaderCellDef>BMI</th>

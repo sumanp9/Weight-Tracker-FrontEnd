@@ -28,7 +28,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { EnterWeightComponent } from './enter-weight/enter-weight.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {DateAdapter, MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule} from '@angular/material/core';
 import { UserweightdataComponent } from './userweightdata/userweightdata.component';
 import {MatTableModule} from '@angular/material/table';
 import {DatePipe} from '@angular/common';
@@ -42,7 +42,7 @@ import {DatePipe} from '@angular/common';
     HomeComponent,
     ProfileComponent,
     EnterWeightComponent,
-    UserweightdataComponent
+    UserweightdataComponent,
   ],
     imports: [
         BrowserModule,

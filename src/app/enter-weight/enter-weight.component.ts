@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormControl} from '@angular/forms';
 import {WeightData} from '../login-service/login.service';
 
@@ -26,7 +26,8 @@ export class EnterWeightComponent implements OnInit {
   date = new FormControl(new Date());
   serializedDate =  new FormControl((new Date()).toISOString());
 
-  constructor(public dialogRef: MatDialogRef<EnterWeightComponent>) { }
+  constructor(public dialogRef: MatDialogRef<EnterWeightComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: WeightData) { }
 
   ngOnInit(): void {
   }
