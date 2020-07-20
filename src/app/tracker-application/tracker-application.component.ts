@@ -51,7 +51,8 @@ export class TrackerApplicationComponent implements OnInit {
   addWeight() {
     this.dialog.open(EnterWeightComponent, {
       width: '350px',
-      disableClose: true
+      disableClose: true,
+      data: null
     }).afterClosed().subscribe((data: WeightData) => {
       if (data) {
         this.loginService.addUsersWeightData(this.user.id, data).subscribe();

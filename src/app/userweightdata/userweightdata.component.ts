@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService, WeightData} from '../login-service/login.service';
 import {DataService} from '../data-service/data.service';
 import {UserProfile} from '../home/home.component';
-import {DatePipe, formatDate} from '@angular/common';
+import {DatePipe} from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 import {EnterWeightComponent} from '../enter-weight/enter-weight.component';
 
@@ -29,13 +29,12 @@ export class UserweightdataComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshPage();
-    console.log("The user is "+ this.user.emailId);
   }
 
   private refreshPage() {
     this.loginService.getUsersData(this.user.id).subscribe((arrayData) => {
       this.userData = arrayData;
-      console.log(this.userData.length);
+      console.log(this.userData);
     }, error => {
       console.error('Unable to get user\'s data. Please refer to the error: ' + error);
     });
@@ -59,9 +58,20 @@ export class UserweightdataComponent implements OnInit {
   }
 
   editWeight(weight: WeightData) {
-    this.dialog.open(EnterWeightComponent, {
+    const dateDialog = this.dialog.open(EnterWeightComponent, {
       width: '300px',
-      data: weight
+      data: weight,
+      disableClose: false
     });
+    dateDialog.afterClosed().subscribe((newData: WeightData) => {
+      if (newData) {
+        this.loginService.addUsersWeightData(this.user.id, newData).subscribe((result => {
+          this.refreshPage();
+        }), error => {
+          console.error('Unable to update data. ' + error);
+          this.refreshPage();
+        });
+      } else { this.refreshPage(); }
+    }, error => {console.log('Unable to get users data. Please check the error log below. ' + error);});
   }
 }

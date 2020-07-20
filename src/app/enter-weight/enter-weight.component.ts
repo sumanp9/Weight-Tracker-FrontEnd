@@ -17,12 +17,13 @@ export class EnterWeightComponent implements OnInit {
   weight: number;
   weightData: WeightData;
   errorMessage: string;
+  dataDate: Date;
 
   units: Unit[] = [
     {value: 'kg', viewValue: 'kg'},
     {value: 'lb', viewValue: 'lb'}
   ];
-  selectedUnit: string;
+
   date = new FormControl(new Date());
   serializedDate =  new FormControl((new Date()).toISOString());
 
@@ -30,11 +31,19 @@ export class EnterWeightComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: WeightData) { }
 
   ngOnInit(): void {
+
+    if (this.data == null) {
+      this.data = {id: null, weight: null, unit: '', date: ''};
+    } else{
+      this.dataDate =  new Date(this.data.date);
+      this.dataDate.setDate(this.dataDate.getDate() + 1);
+      this.date = new FormControl(this.dataDate);
+    }
   }
 
   save() {
-    if (!(this.weight == null && this.selectedUnit == null)) {
-      this.weightData = {id: null, date: this.serializedDate.value, weight: this.weight, unit: this.selectedUnit};
+    if (!(this.data.weight == null && this.data.unit == null)) {
+      this.weightData = {id: this.data.id, date: this.serializedDate.value, weight: this.data.weight, unit: this.data.unit};
       this.dialogRef.close(this.weightData);
 
     } else{

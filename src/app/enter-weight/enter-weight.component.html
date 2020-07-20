@@ -10,13 +10,13 @@
 <mat-form-field>
   <div class="child1">
   <mat-label>Weight</mat-label>
-  <input type="number" matInput min="0" [(ngModel)]="weight">
+  <input type="number" matInput min="0" [(ngModel)]="data.weight">
   </div>
 </mat-form-field>
   <div class="child2">
     <mat-form-field appearance="fill">
     <mat-label>unit</mat-label>
-    <mat-select [(ngModel)]="selectedUnit">
+    <mat-select [(ngModel)]="data.unit">
       <mat-option *ngFor="let unit of units"
                   [value]="unit.value">
         {{unit.viewValue}}
