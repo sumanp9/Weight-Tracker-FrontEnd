@@ -37,4 +37,8 @@ export class LoginService {
   getUsersData(id: number): Observable<Array<WeightData>> {
     return this.http.get<Array<WeightData>>('http://localhost:8080/getData/' + id);
   }
+
+  deleteUserData(dataId: number) {
+    return this.http.delete('http://localhost:8080/deleteData/' + dataId);
+  }
 }

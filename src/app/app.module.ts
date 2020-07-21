@@ -33,6 +33,7 @@ import { UserweightdataComponent } from './userweightdata/userweightdata.compone
 import {MatTableModule} from '@angular/material/table';
 import {DatePipe} from '@angular/common';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { DeleteWeightDataComponent } from './delete-weight-data/delete-weight-data.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ProfileComponent,
     EnterWeightComponent,
     UserweightdataComponent,
+    DeleteWeightDataComponent,
   ],
     imports: [
         BrowserModule,

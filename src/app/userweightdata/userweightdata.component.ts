@@ -3,8 +3,9 @@ import {LoginService, WeightData} from '../login-service/login.service';
 import {DataService} from '../data-service/data.service';
 import {UserProfile} from '../home/home.component';
 import {DatePipe} from '@angular/common';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material/dialog';
 import {EnterWeightComponent} from '../enter-weight/enter-weight.component';
+import {DeleteWeightDataComponent} from '../delete-weight-data/delete-weight-data.component';
 
 @Component({
   selector: 'app-userweightdata',
@@ -16,7 +17,7 @@ export class UserweightdataComponent implements OnInit {
   user: UserProfile;
   userData: Array<WeightData>;
 
-  displayColumns: string[] = ['position', 'date', 'weight', 'bmi'];
+  displayColumns: string[] = ['position', 'date', 'weight', 'bmi', 'delete'];
 
   constructor(private loginService: LoginService,
               private dataService: DataService,
@@ -73,5 +74,19 @@ export class UserweightdataComponent implements OnInit {
         });
       } else { this.refreshPage(); }
     }, error => {console.log('Unable to get users data. Please check the error log below. ' + error);});
+  }
+
+  deleteWeightData(userData: WeightData) {
+      this.dialog.open(DeleteWeightDataComponent, {
+        width: '350px',
+        disableClose: true,
+        data: userData
+      }).afterClosed().subscribe(del => {
+        if (del) {
+          this.loginService.deleteUserData(userData.id).subscribe((result)=> {
+            this.refreshPage();
+          }, error => {console.error("unable to delete the record. Please try again");})
+        }
+      });
   }
 }
