@@ -1,3 +1,4 @@
+<mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
 <mat-vertical-stepper #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
@@ -14,8 +15,16 @@
         <mat-label>Email Id</mat-label>
         <input type="email" matInput [(ngModel)]="userProfile.emailId"  [ngModelOptions]="{standalone: true}">
       </mat-form-field>
+      <mat-form-field>
+        <mat-label>Set up a Password</mat-label>
+        <input type="password" matInput [(ngModel)]="userProfile.password" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your Password again</mat-label>
+        <input type="password" matInput [(ngModel)]= "rePassword" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button> &nbsp;
+        <button mat-button matStepperNext (click)="checkPasswords()">Next</button> &nbsp;
         <button mat-button matDialogClose>Close</button>
 
       </div>

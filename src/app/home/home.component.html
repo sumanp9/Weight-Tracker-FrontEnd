@@ -7,7 +7,7 @@
   <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
   <mat-card-content>
     <p>
-      This application helps in tracking your weight throught your journey.
+      This application helps in tracking your weight through your journey.
     </p>
   </mat-card-content>
   <mat-card-actions>
@@ -16,11 +16,13 @@
 
     <ng-template #signInTemplate>
       <h1>Sign In</h1>
-      <span></span>
+        <mat-error *ngIf="errorMsg">{{errorMsg}}</mat-error>
       <mat-form-field> Enter your email id:
-        <input matInput type="email" [(ngModel)]="emailId"  (keyup.enter)="signIn()">
-        <p *ngIf="loginError"></p>
-        <mat-error *ngIf="loginError">{{errorMsg}}</mat-error>
+        <input matInput type="email" [(ngModel)]="emailId">
+      <p></p>
+      </mat-form-field>
+      <mat-form-field> Enter your password:
+        <input matInput type="password" [(ngModel)]="password" (keyup.enter)="signIn()">
       </mat-form-field>
       <button mat-button (click)="signIn()"> Sign In</button> &nbsp;
       <button mat-button matDialogClose>Close</button>

@@ -18,8 +18,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  userLogin(emailId: string): Observable<UserProfile>{
-    return this.http.get<UserProfile>('http://localhost:8080/login/' + emailId);
+  userLogin(emailId: string, password: string): Observable<UserProfile>{
+    return this.http.post<UserProfile>('http://localhost:8080/login/' + emailId, password );
   }
 
   registerNewUser(newUser: UserProfile): Observable<UserProfile> {

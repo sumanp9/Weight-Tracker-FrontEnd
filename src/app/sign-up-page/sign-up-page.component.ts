@@ -11,6 +11,8 @@ export class SignUpPageComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   userProfile: UserProfile;
+  rePassword: string;
+  errorMessage: string;
 
 
   constructor(
@@ -26,11 +28,22 @@ export class SignUpPageComponent implements OnInit {
       firstCtrl: ['', Validators.required]
     });
 
-    this.userProfile = {id: null, firstName: '', lastName: '', emailId: '', height: null};
+    this.userProfile = {id: null, firstName: '', lastName: '', emailId: '', password: '', height: null};
   }
 
 
   signUp() {
-    this.dialogRef.close(this.userProfile);
+    if (this.userProfile.password === this.rePassword) {
+      this.dialogRef.close(this.userProfile);
+    } else{
+      this.errorMessage = 'Passwords do not match';
+    }
+
+  }
+
+  checkPasswords() {
+    if (this.userProfile.password !== this.rePassword) {
+      this.errorMessage = 'Passwords do not match';
+    }
   }
 }

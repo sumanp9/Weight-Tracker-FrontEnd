@@ -6,6 +6,7 @@ import {DataService} from '../data-service/data.service';
 import {SignUpPageComponent} from '../sign-up-page/sign-up-page.component';
 
 export interface UserProfile {
+  password: string;
   id: number;
   firstName: string;
   lastName: string;
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
   emailId: string;
   errorMsg: string;
   loginError: boolean;
+  password: string;
 
   constructor(private router: Router, public dialog: MatDialog,
               private loginService: LoginService,
@@ -64,9 +66,8 @@ export class HomeComponent implements OnInit {
   }
 
   signIn() {
-    this.loginService.userLogin(this.emailId).subscribe((user: UserProfile) => {
+    this.loginService.userLogin(this.emailId, this.password).subscribe((user: UserProfile) => {
       if (user != null) {
-        console.log(user.firstName);
         this.dataService.serviceData = user;
         this.dialog.closeAll();
         this.router.navigateByUrl('/trackerApp');
@@ -76,6 +77,7 @@ export class HomeComponent implements OnInit {
         console.error('Unable to find user with email id: '+ this.emailId);
       }
     }, error => {
+      this.errorMsg = 'Unable to find user with email id: ' + this.emailId + ' in the database!';
       console.error(error);
     });
 
