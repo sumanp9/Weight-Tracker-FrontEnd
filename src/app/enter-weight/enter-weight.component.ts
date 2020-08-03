@@ -35,7 +35,7 @@ export class EnterWeightComponent implements OnInit {
       this.data = {id: null, weight: null, unit: '', date: ''};
     } else{
       this.dataDate =  new Date(this.data.date);
-      this.dataDate.setDate(this.dataDate.getDate() + 1);
+      //this.dataDate.setDate(this.dataDate.getDate() + 1);
       this.date = new FormControl(this.dataDate);
     }
   }
