@@ -96,4 +96,8 @@ export class TrackerApplicationComponent implements OnInit {
   showUserData() {
     this.showData = true;
   }
+
+  showUsers() {
+
+  }
 }

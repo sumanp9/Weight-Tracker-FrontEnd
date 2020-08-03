@@ -33,6 +33,10 @@
           <mat-icon>exit_to_app</mat-icon>
           <span>Logout</span>
         </button>
+        <button mat-menu-item *ngIf="user.role === 'Admin'" (click)="showUsers()">
+          <mat-icon>people</mat-icon>
+          <span>Admin Features</span>
+        </button>
       </mat-menu>
     </mat-toolbar>
       <button mat-fab class="add-button" color="accent" (click)="addWeight()"><mat-icon color="primary" matTooltip="Add your data">add</mat-icon></button>
