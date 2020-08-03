@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "Weight-Tracker-FrontEnd"
+  "defaultProject": "Weight-Tracker-FrontEnd",
+  "cli": {
+    "analytics": false
+  }
 }
