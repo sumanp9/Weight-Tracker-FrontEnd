@@ -25,7 +25,6 @@ export class EnterWeightComponent implements OnInit {
   ];
 
   date = new FormControl(new Date());
-  serializedDate =  new FormControl((new Date()).toISOString());
 
   constructor(public dialogRef: MatDialogRef<EnterWeightComponent>,
               @Inject(MAT_DIALOG_DATA) public data: WeightData) { }
@@ -43,7 +42,8 @@ export class EnterWeightComponent implements OnInit {
 
   save() {
     if (!(this.data.weight == null && this.data.unit == null)) {
-      this.weightData = {id: this.data.id, date: this.serializedDate.value, weight: this.data.weight, unit: this.data.unit};
+      console.log(this.date.value)
+      this.weightData = {id: this.data.id, date: this.date.value, weight: this.data.weight, unit: this.data.unit};
       this.dialogRef.close(this.weightData);
 
     } else{
