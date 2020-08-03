@@ -11,6 +11,18 @@
         <mat-label>Last Name</mat-label>
         <input matInput [(ngModel)]="userProfile.lastName"  [ngModelOptions]="{standalone: true}">
       </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill" >
+        <mat-label>Role</mat-label>
+        <mat-select [(ngModel)]="userProfile.role" [ngModelOptions]="{standalone: true}">
+          <mat-option *ngFor="let unit of roles"
+                      [value]="unit.value">
+            {{unit.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
       <mat-form-field>
         <mat-label>Email Id</mat-label>
         <input type="email" matInput [(ngModel)]="userProfile.emailId"  [ngModelOptions]="{standalone: true}">
@@ -26,7 +38,6 @@
       <div>
         <button mat-button matStepperNext (click)="checkPasswords()">Next</button> &nbsp;
         <button mat-button matDialogClose>Close</button>
-
       </div>
     </form>
 

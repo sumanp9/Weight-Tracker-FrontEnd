@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserProfile} from '../home/home.component';
+import {Unit} from '../enter-weight/enter-weight.component';
 @Component({
   selector: 'app-sign-up-page',
   templateUrl: './sign-up-page.component.html',
@@ -13,6 +14,11 @@ export class SignUpPageComponent implements OnInit {
   userProfile: UserProfile;
   rePassword: string;
   errorMessage: string;
+  roles: Unit[] = [
+    {value: 'Admin', viewValue: 'Admin'},
+    {value: 'User', viewValue: 'User'}
+  ];
+
 
 
   constructor(
@@ -28,7 +34,7 @@ export class SignUpPageComponent implements OnInit {
       firstCtrl: ['', Validators.required]
     });
 
-    this.userProfile = {id: null, firstName: '', lastName: '', emailId: '', password: '', height: null};
+    this.userProfile = {id: null, firstName: '', lastName: '', emailId: '', password: '', height: null, role: ''};
   }
 
 

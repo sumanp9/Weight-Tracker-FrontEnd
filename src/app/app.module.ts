@@ -34,6 +34,7 @@ import {MatTableModule} from '@angular/material/table';
 import {DatePipe} from '@angular/common';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DeleteWeightDataComponent } from './delete-weight-data/delete-weight-data.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { DeleteWeightDataComponent } from './delete-weight-data/delete-weight-da
         MatNativeDateModule,
         ReactiveFormsModule,
         MatTableModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatRadioModule
     ],
   providers: [MatDatepickerModule, DatePipe],
   bootstrap: [AppComponent]

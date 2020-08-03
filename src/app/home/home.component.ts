@@ -12,6 +12,7 @@ export interface UserProfile {
   lastName: string;
   emailId: string;
   height: number;
+  role: string;
 }
 
 
