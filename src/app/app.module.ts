@@ -35,6 +35,7 @@ import {DatePipe} from '@angular/common';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DeleteWeightDataComponent } from './delete-weight-data/delete-weight-data.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { ShowUsersComponent } from './show-users/show-users.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {MatRadioModule} from '@angular/material/radio';
     EnterWeightComponent,
     UserweightdataComponent,
     DeleteWeightDataComponent,
+    ShowUsersComponent,
   ],
     imports: [
         BrowserModule,

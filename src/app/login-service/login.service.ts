@@ -10,6 +10,12 @@ export interface WeightData{
   unit: string;
 }
 
+export interface AdminUserData {
+  id: number;
+  name: string;
+  emailId: string;
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +46,9 @@ export class LoginService {
 
   deleteUserData(dataId: number) {
     return this.http.delete('http://localhost:8080/deleteData/' + dataId);
+  }
+
+  getUsers(): Observable<Array<AdminUserData>> {
+    return this.http.get<Array<AdminUserData>>('http://localhost:8080/getAllUsers/');
   }
 }

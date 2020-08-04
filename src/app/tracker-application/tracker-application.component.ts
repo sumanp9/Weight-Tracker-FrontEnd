@@ -8,6 +8,7 @@ import {EnterWeightComponent} from '../enter-weight/enter-weight.component';
 import {LoginService, WeightData} from '../login-service/login.service';
 import {MatSidenav} from '@angular/material/sidenav';
 import {UserweightdataComponent} from '../userweightdata/userweightdata.component';
+import {ShowUsersComponent} from '../show-users/show-users.component';
 
 
 @Component({
@@ -98,6 +99,6 @@ export class TrackerApplicationComponent implements OnInit {
   }
 
   showUsers() {
-
+    this.dialog.open(ShowUsersComponent, {height: '800px', width: '600px', disableClose: true});
   }
 }
