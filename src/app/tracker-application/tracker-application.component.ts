@@ -99,6 +99,6 @@ export class TrackerApplicationComponent implements OnInit {
   }
 
   showUsers() {
-    this.dialog.open(ShowUsersComponent, {height: '800px', width: '600px', disableClose: true});
+    this.dialog.open(ShowUsersComponent, {height: '800px', width: '600px', disableClose: true, data: this.user.id});
   }
 }

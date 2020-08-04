@@ -51,4 +51,8 @@ export class LoginService {
   getUsers(): Observable<Array<AdminUserData>> {
     return this.http.get<Array<AdminUserData>>('http://localhost:8080/getAllUsers/');
   }
+
+  deleteUser(userId: number) {
+    return this.http.delete('http://localhost:8080/user/delete/id/' + userId);
+  }
 }

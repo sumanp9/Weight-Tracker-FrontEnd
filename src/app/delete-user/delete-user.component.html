@@ -1,0 +1,19 @@
+<div *ngIf="!isTrue">
+  <h1>Delete User</h1>
+  <mat-dialog-content>
+      Do you want to delete the selected user and their data?
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button  (click)="delete()" color="accent">Yes</button>
+    <button mat-button matDialogClose  color="warn">No</button>
+  </mat-dialog-actions>
+</div>
+<div *ngIf="isTrue">
+  <h1>Warning!</h1>
+  <mat-dialog-content>
+    You cannot delete your account. Please contact system administrator.
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button matDialogClose *ngIf="isTrue" color="warn">I understand</button>
+  </mat-dialog-actions>
+</div>
