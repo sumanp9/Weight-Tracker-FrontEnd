@@ -1,0 +1,36 @@
+<h1>Edit User (Admin Feature)</h1>
+
+<mat-dialog-content *ngIf="user">
+  <mat-form-field>
+    <label>First Name</label>
+    <br>
+    <input matInput [(ngModel)]="user.fName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <label>Last Name</label>
+    <br>
+    <input matInput [(ngModel)]="user.lName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <label>Email</label>
+    <br>
+    <input matInput type="email" [(ngModel)]="user.email">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" >
+    <mat-label>Role</mat-label>
+    <mat-select [(ngModel)]="user.role"  [(value)]="user.role" [ngModelOptions]="{standalone: true}">
+      <mat-option *ngFor="let unit of roles"
+                  [value]="unit.value">
+        {{unit.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="accent" (click)="save()">Save</button>
+  <button mat-button color="warn" matDialogClose>Cancel</button>
+</mat-dialog-actions>

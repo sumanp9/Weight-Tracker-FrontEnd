@@ -12,8 +12,10 @@ export interface WeightData{
 
 export interface AdminUserData {
   id: number;
-  name: string;
-  emailId: string;
+  fName: string;
+  lName: string;
+  email: string;
+  role: string;
 }
 
 
@@ -54,5 +56,9 @@ export class LoginService {
 
   deleteUser(userId: number) {
     return this.http.delete('http://localhost:8080/user/delete/id/' + userId);
+  }
+
+  updateUser(user: AdminUserData) {
+    return this.http.post('http://localhost:8080/user/update/', user);
   }
 }

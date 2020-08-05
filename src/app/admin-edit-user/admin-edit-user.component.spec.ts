@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartPanelComponent } from './chart-panel.component';
+import { AdminEditUserComponent } from './admin-edit-user.component';
 
-describe('ChartPanelComponent', () => {
-  let component: ChartPanelComponent;
-  let fixture: ComponentFixture<ChartPanelComponent>;
+describe('AdminEditUserComponent', () => {
+  let component: AdminEditUserComponent;
+  let fixture: ComponentFixture<AdminEditUserComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartPanelComponent ]
+      declarations: [ AdminEditUserComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChartPanelComponent);
+    fixture = TestBed.createComponent(AdminEditUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
