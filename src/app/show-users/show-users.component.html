@@ -1,8 +1,7 @@
-<h1>User Information</h1>
+<h1>User Information   <button  *ngIf="usersData" matDialogClose color="warn" mat-button class="exit-button" matTooltip="Exit Page">Exit</button>
+</h1>
 
-  <mat-dialog-actions>
-    <button  *ngIf="usersData" matDialogClose color="warn" mat-button class="exit-button" matTooltip="Exit Page">Exit</button>
-  </mat-dialog-actions>
+
 
 <table mat-table  [dataSource]=usersData class="mat-elevation-z8">
   <ng-container matColumnDef="Name">
