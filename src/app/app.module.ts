@@ -37,6 +37,8 @@ import { DeleteWeightDataComponent } from './delete-weight-data/delete-weight-da
 import {MatRadioModule} from '@angular/material/radio';
 import { ShowUsersComponent } from './show-users/show-users.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { ChartPanelComponent } from './chart-panel/chart-panel.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { DeleteUserComponent } from './delete-user/delete-user.component';
     DeleteWeightDataComponent,
     ShowUsersComponent,
     DeleteUserComponent,
+    ChartPanelComponent,
   ],
     imports: [
         BrowserModule,
@@ -74,7 +77,8 @@ import { DeleteUserComponent } from './delete-user/delete-user.component';
         ReactiveFormsModule,
         MatTableModule,
         MatExpansionModule,
-        MatRadioModule
+        MatRadioModule,
+        NgxChartsModule
     ],
   providers: [MatDatepickerModule, DatePipe],
   bootstrap: [AppComponent]

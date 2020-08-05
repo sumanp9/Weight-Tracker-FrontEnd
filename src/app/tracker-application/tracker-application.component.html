@@ -58,6 +58,17 @@
 
       </mat-expansion-panel>
     </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel (opened)="chartOpenState = true"
+                           (closed)="chartOpenState =  false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Progress Line Graph</mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <app-chart-panel></app-chart-panel>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-drawer-content>
 </mat-drawer-container>
 
