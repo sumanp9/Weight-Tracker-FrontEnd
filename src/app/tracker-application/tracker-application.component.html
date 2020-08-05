@@ -1,5 +1,5 @@
 <mat-drawer-container [hasBackdrop]="true" class="example-container" *ngIf="user">
-  <mat-drawer #drawer mode="side">
+  <mat-drawer #drawer mode="over">
     <mat-card class="dashboard-card">
       <mat-card-header>User Information</mat-card-header>
         <button mat-button *ngIf="!calc" (click)="calculateBMI()">Calculate BMI</button>
